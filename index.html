@@ -65,6 +65,7 @@
         /* This extra margin represent roughly the same space as the space
             between the labels and their text fields */
         margin-left: 0.5em;
+        margin-top: 0.25em;   /* small spacing above text */
         }
 
         .helper-text {
@@ -72,23 +73,37 @@
             font-size: 0.85em;    /* slightly smaller than input text */
             color: #555;          /* subtle color */
             margin-top: 0.25em;   /* small spacing above text */
+            margin-left: 60px; /* aligns with input field */
         }
-
+        table {
+            margin: 2em auto;        /* centers the table horizontally and adds vertical spacing */
+            border-collapse: collapse;
+            width: 80%;              /* optional: sets table width relative to page */
+            max-width: 600px;        /* optional: prevents table from getting too wide */
+            text-align: left;        /* aligns cell content nicely */
+        }
+        th, td {
+            border: 1px solid #999;  /* match form border style */
+            padding: 0.5em 1em;
+        }
+        th {
+            background-color: #f2f2f2;  /* light gray header for readability */
+        }
+        caption {
+            font-weight: bold;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
     </style>
 </head>
 <body>
     <h1>Submit a Message</h1>
     <form action="/my-handling-form-page" method="post">
-        <p>
+        <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="user_name" required>
-        <p>
+        </div>
 
-        <!-- <p id="emailHelp">Enter a valid email address (example: name@email.com).</p>
-        <p>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="user_email" required aria-describedby="emailHelp">
-        </p> -->
         <div class="form-group">
             <label for="email">Email:</label>
             <input
@@ -97,28 +112,43 @@
                 name="user_email"
                 required
                 aria-describedby="emailHelp">
-            <span id="emailHelp" class="helper-text">Enter a valid email address (example: name@email.com).</span>
+            <p id="emailHelp" class="helper-text">Enter a valid email address (example: name@email.com).</p>
         </div>
 
-        <p>
+        <div class="form-group">
             <label for="msg">Message:</label>
             <textarea id="msg" name="user_message" required></textarea>
-        </p>
-        <p class ="button">
+        </div>
+
+        <div class="button">
             <button type="reset">Reset</button>
             <button type="submit">Send your message</button>
-        </p>
+        </div>
 
     </form>
 
     <table>
-        <caption>Class Schedule</caption>]
-        <thead>
+        <caption>Class Schedule</caption>
             <tr>
-                <th>Day</th>
-                <th>Topic</th>
+                <th scope="col">Week</th>
+                <th scope="col">Topic</th>
             </tr>
-            
+            <tr>
+                <td>One</td>
+                <td>HTML – Building Web Foundations</td>
+            </tr>
+            <tr>
+                <td>Two</td>
+                <td>CSS – Styling and Layout</td>    
+            </tr>       
+            <tr>
+                <td>Three</td>
+                <td>Python Foundations I</td>
+            </tr>
+            <tr>
+                <td>Four</td>
+                <td>Python Foundations II</td>
+            </tr>
     </table>
 </body>
 </html>
